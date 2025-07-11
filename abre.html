@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Você me perdoa?</title>
+    <style>
+      body {
+        margin: 0;
+        padding: 0;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        background: linear-gradient(to right, #fbc2eb, #a6c1ee);
+        color: #333;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        min-height: 100vh;
+        text-align: center;
+      }
+      header {
+        margin-bottom: 20px;
+      }
+      h1 {
+        font-size: 2.5rem;
+        margin-bottom: 10px;
+      }
+      p {
+        font-size: 1.2rem;
+        margin-bottom: 30px;
+      }
+      img {
+        max-width: 300px;
+        height: auto;
+        border-radius: 10px;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+      }
+      .buttons {
+        margin-top: 30px;
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+      }
+      button {
+        padding: 10px 20px;
+        font-size: 1rem;
+        border: none;
+        border-radius: 25px;
+        cursor: pointer;
+        background-color: #ff6b81;
+        color: white;
+        transition: background-color 0.3s ease;
+      }
+      button:hover {
+        background-color: #ff4757;
+      }
+      #noButton {
+        background-color: #ced6e0;
+        color: #2f3542;
+      }
+      #noButton:hover {
+        background-color: #a4b0be;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <h1>Você me perdoa?</h1>
+      <p>lindo 💖</p>
+    </header>
+    <main>
+      <img
+        id="gif"
+        src="https://media4.giphy.com/media/v1.Y2lkPTc5MGI3NjExaXRtc21nb3lwang4MW5reHlyZG1xYW8zZTZxeWNrNmRkZ2tuNTNseiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9cw/666WfyD7dz3ptSplJV/giphy.gif"
+        alt="gif fofo"
+      />
+      <div class="buttons">
+        <button id="yesButton">Sim</button>
+        <button id="noButton">Não</button>
+      </div>
+    </main>
+
+    <script>
+      const yesButton = document.getElementById('yesButton');
+      const noButton = document.getElementById('noButton');
+      const gif = document.getElementById('gif');
+
+      const noTexts = [
+        'Pense novamente!',
+        'Tem certeza?',
+        'Escolha errada.',
+        'Não aceito isso como resposta.',
+        'Aceita logo!',
+        'Vai logo...',
+        'POR FAVOR?',
+        'Miguel!',
+        'Não pedirei novamente',
+      ];
+
+      let noClickCount = 0;
+
+      yesButton.addEventListener('click', () => {
+        gif.src =
+          'https://media2.giphy.com/media/v1.Y2lkPTc5MGI3NjExc3FseHljaTFudjk2aWNqeWJxZ2J1NjFpcjZ6cTZuZWQ4emZ2eTJvcSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9cw/GHJ045TmwyOn9PVdPG/giphy.gif';
+        yesButton.textContent = 'Eu já sabia que ia perdoar!';
+        noButton.style.display = 'none';
+      });
+
+      noButton.addEventListener('click', () => {
+        if (noClickCount < noTexts.length) {
+          noButton.textContent = noTexts[noClickCount];
+          noClickCount++;
+        } else {
+          noButton.textContent = 'Ok, tudo bem.';
+          noButton.disabled = true;
+        }
+      });
+    </script>
+  </body>
+</html>
